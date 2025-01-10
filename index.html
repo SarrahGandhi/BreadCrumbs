@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
+    <title>BreadCrumbs</title>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="header">
+      <nav class="navigation">
+        <a href="#home" class="nav-link">BreadCrumbs</a>
+      </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+      <div class="instructions-content">
+        <h2>Welcome to the Recipe Finder</h2>
+        <p>Here’s how to use the website:</p>
+        <p><strong>Step 1:</strong> Select ingredients from the list below.</p>
+
+        <p>
+          <strong>Step 2:</strong> Click on "Find Recipes" to see the matching
+          recipes.
+        </p>
+        <p>
+          <strong>Step 3:</strong> Browse through the available recipes and
+          click on a recipe to view the details.
+        </p>
+
+        <p>
+          <strong>Step 4:</strong> Follow the instructions and cook your meal!
+        </p>
+      </div>
+      <form id="ingredients-form" class="ingredients-form">
+        <section id="categories">
+          <div class="vegetables">
+            <h1>Vegetables</h1>
+            <div class="line"></div>
+            <input
+              type="checkbox"
+              id="bell-peppers"
+              name="ingredient"
+              value="Bell Peppers"
+            />
+            <label for="bell-peppers">Bell Peppers</label>
+            <input
+              type="checkbox"
+              id="onions"
+              name="ingredient"
+              value="Onions"
+            />
+            <label for="onions">Onions</label>
+            <input
+              type="checkbox"
+              id="carrots"
+              name="ingredient"
+              value="Carrots"
+            />
+            <label for="carrots">Carrots</label>
+            <input
+              type="checkbox"
+              id="garlic"
+              name="ingredient"
+              value="Garlic"
+            />
+            <label for="garlic">Garlic</label>
+            <input
+              type="checkbox"
+              id="spinach"
+              name="ingredient"
+              value="Spinach"
+            />
+            <label for="spinach">Spinach</label>
+            <input
+              type="checkbox"
+              id="tomatoes"
+              name="ingredient"
+              value="Tomatoes"
+            />
+            <label for="tomatoes">Tomatoes</label>
+          </div>
+          <div class="grains">
+            <h1>Grains</h1>
+            <input type="checkbox" id="rice" name="ingredient" value="Rice" />
+            <label for="rice">Rice</label>
+            <input
+              type="checkbox"
+              id="tortillas"
+              name="ingredient"
+              value="Tortillas"
+            />
+            <label for="tortillas">Tortillas</label>
+          </div>
+
+          <div class="proteins">
+            <h1>Proteins</h1>
+            <input type="checkbox" id="eggs" name="ingredient" value="Eggs" />
+            <label for="eggs">Eggs</label>
+            <input
+              type="checkbox"
+              id="chicken-breast"
+              name="ingredient"
+              value="Chicken Breast"
+            />
+            <label for="chicken-breast">Chicken Breast</label>
+            <input
+              type="checkbox"
+              id="canned-beans"
+              name="ingredient"
+              value="Canned Beans"
+            />
+            <label for="canned-beans">Canned Beans</label>
+          </div>
+          <div class="dairy">
+            <h1>Dairy</h1>
+            <input
+              type="checkbox"
+              id="cheese"
+              name="ingredient"
+              value="Cheese"
+            />
+            <label for="cheese">Cheese (Cheddar or Mozzarella)</label>
+          </div>
+          <div class="others">
+            <h1>Other Ingredients</h1>
+            <input
+              type="checkbox"
+              id="olive-oil"
+              name="ingredient"
+              value="Olive Oil"
+            />
+            <label for="olive-oil">Olive Oil</label>
+            <input
+              type="checkbox"
+              id="soy-sauce"
+              name="ingredient"
+              value="Soy Sauce"
+            />
+            <label for="soy-sauce">Soy Sauce</label>
+            <input
+              type="checkbox"
+              id="avocados"
+              name="ingredient"
+              value="Avocados"
+            />
+            <label for="avocados">Avocados</label>
+          </div>
+        </section>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="button"
+          onclick="logSelectedIngredients(event)"
+        >
+          Find Recipes
+        </button>
+        <h1 class="text"></h1>
+      </form>
+
+      <section class="recipes">
+        <!-- Recipe Cards Section -->
+        <div
+          class="recipecards"
+          id="recipecards1"
+          data-ingredients="bell peppers,onions,garlic,carrots,spinach,soy sauce,rice,olive oil"
+          data-name="Veggie Stir-fry with Rice"
+        >
+          <img
+            src="images/VeggieStir-frywithRice.jpg"
+            alt="Recipe 1"
+            class="recipe-image"
+          />
+          <h2 class="recipe-title">Veggie Stir-fry with Rice</h2>
+          <p class="recipe-info">Time to make: 30 minutes</p>
+          <p class="recipe-info">Difficulty: Medium</p>
+          <button class="recipe-link" onclick="showRecipePage(1)">
+            Check Recipe
+          </button>
+        </div>
+
+        <div
+          class="recipecards"
+          id="recipecards2"
+          data-ingredients="bell peppers,onions,garlic,tortillas,tomatoes,avocados,canned-beans"
+          data-name="Veggie Tacos"
+        >
+          <img
+            src="images/veggietacos.jpg"
+            alt="Recipe 2"
+            class="recipe-image"
+          />
+          <h2 class="recipe-title">Veggie Tacos</h2>
+          <p class="recipe-info">Time to make: 20 minutes</p>
+          <p class="recipe-info">Difficulty: Easy</p>
+          <button class="recipe-link" onclick="showRecipePage(2)">
+            Check Recipe
+          </button>
+        </div>
+
+        <div
+          class="recipecards"
+          id="recipecards3"
+          data-ingredients="tortillas,cheese,bell peppers,onions,spinach"
+          data-name="Cheesy Veggie Quesadillas"
+        >
+          <img
+            src="images/CheesyVeggieQuesadillas.jpg"
+            alt="Recipe 3"
+            class="recipe-image"
+          />
+          <h2 class="recipe-title">Cheesy Veggie Quesadillas</h2>
+          <p class="recipe-info">Time to make: 25 minutes</p>
+          <p class="recipe-info">Difficulty: Easy</p>
+          <button class="recipe-link" onclick="showRecipePage(3)">
+            Check Recipe
+          </button>
+        </div>
+
+        <div
+          class="recipecards"
+          id="recipecards4"
+          data-ingredients="chicken-breast,bell peppers,onions,garlic,carrots,soy sauce,olive oil"
+          data-name="Chicken and Veggie Stir-fry"
+        >
+          <img
+            src="images/ChickenVeggieStir-fry.jpg"
+            alt="Recipe 4"
+            class="recipe-image"
+          />
+          <h2 class="recipe-title">Chicken and Veggie Stir-fry</h2>
+          <p class="recipe-info">Time to make: 35 minutes</p>
+          <p class="recipe-info">Difficulty: Medium</p>
+          <button class="recipe-link" onclick="showRecipePage(4)">
+            Check Recipe
+          </button>
+        </div>
+        <div
+          class="recipecards"
+          id="recipecards5"
+          data-ingredients="rice,eggs,onions,garlic,bell peppers,soy sauce,olive oil"
+          data-name="Egg Fried Rice"
+        >
+          <img
+            src="images/EggFriedRice.jpg"
+            alt="Recipe 5"
+            class="recipe-image"
+          />
+          <h2 class="recipe-title">Egg Fried Rice</h2>
+          <p class="recipe-info">Time to make: 20 minutes</p>
+          <p class="recipe-info">Difficulty: Easy</p>
+          <button class="recipe-link" onclick="showRecipePage(5)">
+            Check Recipe
+          </button>
+        </div>
+
+        <div
+          class="recipecards"
+          id="recipecards6"
+          data-ingredients="avocados,canned beans,tomatoes,onions,olive oil"
+          data-name="Avocado and Bean Salad"
+        >
+          <img
+            src="images/AvocadoBeanSalad.webp"
+            alt="Recipe 6"
+            class="recipe-image"
+          />
+          <h2 class="recipe-title">Avocado and Bean Salad</h2>
+          <p class="recipe-info">Time to make: 15 minutes</p>
+          <p class="recipe-info">Difficulty: Easy</p>
+          <button class="recipe-link" onclick="showRecipePage(6)">
+            Check Recipe
+          </button>
+        </div>
+
+        <div
+          class="recipecards"
+          id="recipecards7"
+          data-ingredients="chicken breast,bell peppers,onions,garlic,tortillas,olive oil"
+          data-name="Chicken Fajitas"
+        >
+          <img
+            src="images/ChickenFajitas.jpg"
+            alt="Recipe 7"
+            class="recipe-image"
+          />
+          <h2 class="recipe-title">Chicken Fajitas</h2>
+          <p class="recipe-info">Time to make: 30 minutes</p>
+          <p class="recipe-info">Difficulty: Medium</p>
+          <button class="recipe-link" onclick="showRecipePage(7)">
+            Check Recipe
+          </button>
+        </div>
+
+        <!-- Button to go back to ingredients page -->
+
+        <!-- Error message -->
+        <span class="error"></span>
+      </section>
+      <button class="recipe-back-button" onclick="backToIngredients()">
+        Back to Ingredients
+      </button>
+      <!-- Recipe Detail Sections -->
+      <!-- <section id="recipeDetails"> -->
+      <section id="recipeDetail1" class="recipeDetail">
+        <button class="back-button" onclick="backToRecipes()">
+          Back to Recipes
+        </button>
+        <h2 id="recipeTitle"></h2>
+        <div id="recipeContainerflex">
+          <div class="Ing">
+            <h2>Ingredients</h2>
+            <ul id="recipeIngredients"></ul>
+          </div>
+          <img id="recipeImage" class="recipeImage" />
+        </div>
+        <h2 class="directions">Directions</h2>
+        <ul id="recipeSteps"></ul>
+      </section>
+      <!-- </section> -->
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2024 My Website</p>
+    </footer>
+  </body>
+</html>
